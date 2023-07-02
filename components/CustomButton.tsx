@@ -3,15 +3,15 @@ import React from 'react';
 import Image from "next/image";
 import { customButtonProps } from '@/types';
 
-function customButton({title,handleClick,containerStyles}:customButtonProps) {
+function customButton({title,handleClick,containerStyles,btnType}:customButtonProps) {
   return (
     <button
     disabled= {false}
-    type={'button'}
+    type={btnType || 'button'}
     className={`custom-btnbn ${containerStyles}`}
     onClick={() => {handleClick}}
     
-    >s
+    >
         <span className={`flex-1`}>
             {title}
         </span>
