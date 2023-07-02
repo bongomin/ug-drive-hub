@@ -25,7 +25,7 @@ function Navbar() {
             <CustomButton
             title="Sign In"
             btnType="button"
-            containerStyles="text-primary-blue rounded-full bg-white min-w-[130px]"
+            containerStyles="text-primary-blue rounded-full bg-white min-w-[130px] px-2 py-2"
             />
         </nav>
 

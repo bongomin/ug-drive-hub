@@ -11,7 +11,9 @@ function Hero() {
     <div className='hero'>
       <div className="flex-1 pt-36 padding-x">
         <h1 className="hero__title">
-          Find, book, or rent a car in UG ***** quickly and easily..
+          Find, book, or rent a car in UG quickly
+          <span className="text-blue-600">&</span><br/>
+          easily..
         </h1>
         <p className="hero__subtitle">
         Elevate your car rental experience with our seamless booking process,
@@ -19,7 +21,7 @@ function Hero() {
         </p>
         <CustomButton 
         title="Explore Cars"
-        containerStyles="bg-primary-blue text-white rounded-full mt-10"
+        containerStyles="bg-primary-blue text-white px-6 py-3 rounded-full mt-10"
         handleClick={handleScroll}
         />
       </div>
@@ -30,9 +32,8 @@ function Hero() {
           alt="hero"
           fill className='object-contain'
           />
-          <div className="hero__image-overlay">
-
           </div>
+          <div className="hero__image-overlay">
         </div>
       </div>
     </div>
