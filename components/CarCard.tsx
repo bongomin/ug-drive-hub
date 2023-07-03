@@ -1,7 +1,9 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { carProps } from '@/types';
 import { calculateCarRent } from '@/utillities'
+import CustomButton from './CustomButton';
 
 interface CarCardProps {
     car: carProps;
@@ -11,6 +13,8 @@ function CarCard({ car }: CarCardProps) {
     const { city_mpg, year, make, model, transmission, drive } = car;
 
     const carRent = calculateCarRent(city_mpg, year);
+
+    const [isOpen,setIsOpen] = useState(false);
 
     return (
         <div className="car-card group">
@@ -55,6 +59,16 @@ function CarCard({ car }: CarCardProps) {
                         <Image src="/gas.svg" width={20} height={20} alt="gas" />
                         <p className="text-[14px]">{city_mpg}MPG</p>
                     </div>
+                </div>
+                <div className="car-card__btn-container">
+                    <CustomButton
+                    title="View More"
+                    containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
+                    textStyles="text-white text-[14px] leading-[17px] font-bold"
+                    rightIcon="/right-arrow.svg"
+                    handleClick={() => isOpen}
+
+                    />
                 </div>
             </div>
         </div>
