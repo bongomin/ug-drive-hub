@@ -6,6 +6,10 @@ export default async function Home() {
 
   const allCars = await fetchAllCars()
 
+  // check if the data is empty
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1
+  || !allCars;
+
   return (
     <main className="overflow-hidden">
      <Hero/>
@@ -25,6 +29,19 @@ export default async function Home() {
           <CustomeFilter title="year"/>
         </div>
       </div>
+      {/* Loop throuhh all the cars */}
+      {!isDataEmpty ? (
+        <section>
+         We have the cars
+        </section>
+      ): (
+        <div className='home__error-container'>
+          <h2 className='text-black text-xl font-bold'>
+            Ooops ,no results
+          </h2>
+          <p>{allCars?.message}</p>
+        </div>
+      )}
 
      </div>
     </main>
