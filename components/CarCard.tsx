@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { carProps } from '@/types';
 import { calculateCarRent } from '@/utillities'
 import CustomButton from './CustomButton';
+import CarDetails from './CarDetails';
 
 interface CarCardProps {
     car: carProps;
@@ -67,10 +68,11 @@ function CarCard({ car }: CarCardProps) {
                     textStyles="text-white text-[14px] leading-[17px] font-bold"
                     rightIcon="/right-arrow.svg"
                     handleClick={() => isOpen}
-
                     />
                 </div>
             </div>
+            {/* modal for showing car details */}
+            <CarDetails isOpen={isOpen} closeModal={()=>setIsOpen(false)} car={car}/>
         </div>
     );
 }
