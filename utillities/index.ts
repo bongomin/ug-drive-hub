@@ -1,3 +1,4 @@
+import { carProps } from "@/types";
 import dynamic from "next/dynamic";
 
 // fetch all cars from rapid api
@@ -7,7 +8,7 @@ export async function  fetchAllCars() {
         'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
     }
 
-    const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla', {headers})
+    const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=carrera', {headers})
 
     const results = await response.json();
     return results;
@@ -45,3 +46,16 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
 
 //     return rentalRatePerDayUGX.toFixed(0);
 // };
+
+export const generateCarImageUrl = (car: carProps, angle?: string) => {
+    const url = new URL('https://cdn.imagin.studio/getimage');
+
+    const { make, year, model } = car;
+    url.searchParams.append('customer', 'hrjavascript-mastery');
+    url.searchParams.append('make', make);
+    url.searchParams.append('modelFamily', model.split(' ')[0]);
+    url.searchParams.append('zoomType', 'fullScreen');
+    url.searchParams.append('modelYear', `${year}`);
+    url.searchParams.append('angle', `${angle}`);
+    return `${url}`;
+}
