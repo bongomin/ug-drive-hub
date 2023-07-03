@@ -67,11 +67,10 @@ function CarCard({ car }: CarCardProps) {
                     containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
                     textStyles="text-white text-[14px] leading-[17px] font-bold"
                     rightIcon="/right-arrow.svg"
-                    handleClick={() => isOpen}
+                    handleClick={() => setIsOpen(true)}
                     />
                 </div>
             </div>
-            {/* modal for showing car details */}
             <CarDetails isOpen={isOpen} closeModal={()=>setIsOpen(false)} car={car}/>
         </div>
     );
